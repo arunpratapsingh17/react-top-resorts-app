@@ -5,6 +5,7 @@ import Rooms from "./pages/Rooms";
 import Error from "./pages/Error";
 import SingleRoom from "./pages/SingleRoom";
 import Navbar from "./components/Navbar";
+import Styled from "./components/StyledHero";
 import { Route, Switch } from "react-router-dom";
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/rooms" component={Rooms} />
+        <Route exact path="/rooms/:slug" component={SingleRoom} />
         <Route component={Error} />
-        <Route exact path="/single-room" component={SingleRoom} />
       </Switch>
     </>
   );
