@@ -29,7 +29,16 @@ export default function RoomsFilter({ rooms }) {
   } = context;
   //GETTING ALL THE UNIQUE VALUES IN AN ARRAY
   let types = getUnique(rooms, "type");
+  //ADDING ALL IN THE STARTING
   types = ["all", ...types];
+  //MAPPING TO JSX
+  types = types.map((item, index) => {
+    return (
+      <option value={item} key={index}>
+        {item}
+      </option>
+    );
+  });
   return (
     <section className="filter-container">
       <Title title="Search Rooms" />
@@ -42,7 +51,9 @@ export default function RoomsFilter({ rooms }) {
             value={type}
             className="form-control"
             onChange={handleChange}
-          />
+          >
+            {types}
+          </select>
         </div>
       </form>
     </section>
